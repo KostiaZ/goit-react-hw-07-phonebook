@@ -3,6 +3,7 @@ import {
   useAddContactMutation,
   useGetContactsApiQuery,
 } from 'redux/contactsApi';
+import s from './ContactForm.module.css';
 
 export default function ContactForm() {
   const [name, setName] = useState('');
@@ -41,7 +42,7 @@ export default function ContactForm() {
   };
 
   return (
-    <form onSubmit={handleAddContact}>
+    <form className={s.form} onSubmit={handleAddContact}>
       <label>
         Name
         <input
@@ -52,6 +53,7 @@ export default function ContactForm() {
           pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
           title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
           required
+          className={s.inputName}
         />
       </label>
       <label>
@@ -64,12 +66,11 @@ export default function ContactForm() {
           pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
           title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
           required
+          className={s.inputNumber}
         />
       </label>
 
-      <button type="submit" >
-        Add contact
-      </button>
+      <button type="submit">Add contact</button>
     </form>
   );
 }

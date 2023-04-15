@@ -1,6 +1,7 @@
 import ContactItem from '../ContactItem/ContactItem';
 import { useSelector } from 'react-redux';
 import { useGetContactsApiQuery } from 'redux/contactsApi';
+import s from './ContactList.module.css';
 
 const ContactList = () => {
   const { data, isLoading } = useGetContactsApiQuery();
@@ -24,7 +25,7 @@ const ContactList = () => {
     <>
       {isLoading && <p>Loading...</p>}
       {
-        <ul >
+        <ul className={s.list}>
           {!isLoading && data && filterEl.length > 0 ? (
             filterEl.map(({ id, name, phone }) => (
               <ContactItem

@@ -1,19 +1,11 @@
 import ContactList from './ContactList/ContactList';
 import ContactForm from './ContactForm';
 import Filter from './Filter';
+import s from './App.module.css';
 
 export default function App() {
   return (
-    <div
-      style={{
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        flexDirection: 'column',
-        fontSize: 18,
-        color: '#010101',
-      }}
-    >
+    <div className={s.container}>
       <h1>Phonebook</h1>
       <ContactForm />
       <h2>Contacts</h2>

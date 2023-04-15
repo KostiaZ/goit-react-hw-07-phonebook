@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { useDeleteContactMutation } from 'redux/contactsApi';
+import s from './ContactItem.module.css';
 
 const ContactItem = ({ id, name, phone }) => {
   const [deleteContact] = useDeleteContactMutation();
@@ -10,12 +11,16 @@ const ContactItem = ({ id, name, phone }) => {
   };
 
   return (
-    <li id={id}>
+    <li id={id} className={s.item}>
       <p>
         {name}............
         {phone}
       </p>
-      <button type="submit" onClick={() => handleDeleteContact(id)}>
+      <button
+        className={s.button}
+        type="submit"
+        onClick={() => handleDeleteContact(id)}
+      >
         Delete
       </button>
     </li>
